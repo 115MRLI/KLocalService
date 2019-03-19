@@ -16,11 +16,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     //AndServer是Android平台的Web Server和Web Framework（Android局域网服务器）
     implementation 'com.yanzhenjie.andserver:api:2.0.4'
     annotationProcessor 'com.yanzhenjie.andserver:processor:2.0.4'
@@ -33,6 +40,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //消息总线
     implementation 'org.greenrobot:eventbus:3.1.1'
-    //Google Gson
+    //Google 解析Gson
     implementation 'com.google.code.gson:gson:2.8.5'
 }
