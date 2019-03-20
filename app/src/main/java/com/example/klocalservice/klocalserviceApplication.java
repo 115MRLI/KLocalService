@@ -2,6 +2,8 @@ package com.example.klocalservice;
 
 import android.app.Application;
 
+import com.example.klocalservice.manager.CoreServerManager;
+
 public class klocalserviceApplication extends Application {
     //除非特殊情况，否则尽量少用
     private static klocalserviceApplication application;
@@ -10,6 +12,8 @@ public class klocalserviceApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        //启动本地核心服务
+        CoreServerManager.startCoreServer(this, 8080, 8081);
     }
 
     /**
